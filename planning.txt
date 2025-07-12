@@ -1,0 +1,6 @@
+1. Save each tile value:
+Change tile
+    Add tile value to array
+    If user has 3 winning elements before the other user, he wins
+    Change user
+

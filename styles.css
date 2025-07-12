@@ -1,0 +1,25 @@
+.jumbotron{
+   padding: 2em 25em;
+   border: rgb(0, 0, 0) solid 2px;
+   background: rgb(177, 177, 177);
+}
+
+.btn-primary{
+    border: black;
+    background-color: gray;
+    padding: 0 auto;
+}
+
+table{
+    margin: 2em auto;
+    table-layout: fixed;
+    width: 390;
+    height: 390px;
+}
+td {
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    border: black solid 2px;
+    font-size: 100px;
+}
