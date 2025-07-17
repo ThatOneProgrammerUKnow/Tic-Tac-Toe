@@ -26,14 +26,13 @@ function changeTiles(){ // Change tiles method
         
     } else if (userturn === 2){ // User two's turn
         usertwo_tiles.push(this.getAttribute('id'));
-
         
 
         if (this.textContent===''){
             this.textContent='O';
 
             if (usertwo_tiles.length >= 3){
-            check_win();
+                check_win();
             }
 
             userturn = 1; 
@@ -44,6 +43,7 @@ function changeTiles(){ // Change tiles method
 
 function check_win(){ // Checks to see if the user wins
     if (userturn===1){
+        sort_asc(userone_tiles);
         for (let i=0; i<userone_tiles.length; i++){ // Tile one 
             for (let j=i+1; j<userone_tiles.length; j++){ // Tile two
                 for (let k=j+1; k<userone_tiles.length; k++){ // Tile three
@@ -54,10 +54,11 @@ function check_win(){ // Checks to see if the user wins
     }
 
     if (userturn===2){
+        sort_asc(usertwo_tiles);
          for (let i=0; i<usertwo_tiles.length; i++){ // Tile one 
             for (let j=i+1; j<usertwo_tiles.length; j++){ // Tile two
                 for (let k=j+1; k<usertwo_tiles.length; k++){ // Tile three
-                    win_combinations(usertwo_tiles[i] + usertwo_tiles[j] + usertwo_tiles[k]);
+                    win_combinations(usertwo_tiles[i], usertwo_tiles[j], usertwo_tiles[k]);
                 }
             }
         }
@@ -67,14 +68,14 @@ function check_win(){ // Checks to see if the user wins
 
 function win_combinations(combination){ // Checks to see if three tiles makes a "winning" combination
     if (
-        (combination) === ("t11t12t13") ||
-        (combination) === ("t21t22t23") ||
-        (combination) === ("t31t32t33") ||
-        (combination) === ("t11t21t31") ||
-        (combination) === ("t12t22t32") ||
-        (combination) === ("t13t23t33") ||
-        (combination) === ("t11t22t33") ||
-        (combination) === ("t31t22t11")
+        (combination) === ("111213") ||
+        (combination) === ("212223") ||
+        (combination) === ("313233") ||
+        (combination) === ("112131") ||
+        (combination) === ("122232") ||
+        (combination) === ("132333") ||
+        (combination) === ("112233") ||
+        (combination) === ("312211")
     ){
     result = true;
     user_winner = userturn;
@@ -99,6 +100,24 @@ function reset(){ // Reset everything
     user_winner = 0;
     userturn = 1;
 }
+
+// Function sort & sawp
+function sort_asc(myArray){
+    for (i=0; myArray.length-2; i++){
+        for (j=i; myArray.length-1; j++){
+            if (myArray[j]>myArray[j+1]){swap(myArray[j], myArray[j+1])}
+            
+        }
+    }
+}
+function swap(value_one, value_two){
+    var temp = undefined;
+    temp = value_one;
+    value_one = value_two;
+    value_two = temp;
+    temp = undefined;
+}
+
 
 //.............................................................Changing tiles
 for (let i=0; i< tiles.length; i++){
